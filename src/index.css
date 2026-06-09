@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-accent: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-glow: var(--accent-glow);
+}
+
+:root {
+  /* Default Accent Theme: Indigo */
+  --accent-primary: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  
+  --bg-app: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --border-card: rgba(255, 255, 255, 0.5);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --shadow-color: rgba(15, 23, 42, 0.08);
+  
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Accent Themes */
+.theme-indigo {
+  --accent-primary: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-glow: rgba(99, 102, 241, 0.2);
+}
+
+.theme-emerald {
+  --accent-primary: #10b981;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.2);
+}
+
+.theme-rose {
+  --accent-primary: #f43f5e;
+  --accent-hover: #e11d48;
+  --accent-glow: rgba(244, 63, 94, 0.2);
+}
+
+.theme-amber {
+  --accent-primary: #f59e0b;
+  --accent-hover: #d97706;
+  --accent-glow: rgba(245, 158, 11, 0.2);
+}
+
+.theme-sky {
+  --accent-primary: #0ea5e9;
+  --accent-hover: #0284c7;
+  --accent-glow: rgba(14, 165, 233, 0.2);
+}
+
+.theme-teal {
+  --accent-primary: #14b8a6;
+  --accent-hover: #0d9488;
+  --accent-glow: rgba(20, 184, 166, 0.2);
+}
+
+.theme-violet {
+  --accent-primary: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-glow: rgba(139, 92, 246, 0.2);
+}
+
+.theme-orange {
+  --accent-primary: #f97316;
+  --accent-hover: #ea580c;
+  --accent-glow: rgba(249, 115, 22, 0.2);
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --bg-app: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.80);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  border-radius: 1rem;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #0f172a !important;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.dark .glass-input {
+  background: rgba(15, 23, 42, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+/* Always-Dark Glass Card */
+.dark-glass-card {
+  background: rgba(15, 23, 42, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+  border-radius: 1rem;
+}
+
+/* Always-Dark Input */
+.dark-glass-input {
+  background: rgba(15, 23, 42, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.2s ease !important;
+}
+
+.dark-glass-input:focus {
+  outline: none;
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+/* Styled option dropdown items for contrast */
+.dark-glass-input option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+.glass-input option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.dark .glass-input option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+
+/* Universal Dark Styling for Buttons */
+button {
+  background-color: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f8fafc !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+button:hover {
+  background-color: #1e293b !important;
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 8px var(--accent-glow) !important;
+}
+
+/* Retain default styling for colored accent buttons */
+button.bg-accent, 
+button.bg-rose-500, 
+button.bg-emerald-500, 
+button.bg-amber-500, 
+button.bg-sky-500,
+button.bg-rose-600,
+button.bg-emerald-600,
+button.bg-amber-600,
+button.bg-sky-600 {
+  background-image: none !important;
+  color: white !important;
+  border: none !important;
+}
+
+button.bg-accent {
+  background-color: var(--accent-primary) !important;
+}
+button.bg-accent:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Neon Glow Filters */
+.glow-icon {
+  filter: drop-shadow(0 0 4px var(--accent-primary));
+}
+
+.glow-icon-hover:hover {
+  filter: drop-shadow(0 0 8px var(--accent-primary));
+  transition: filter 0.2s ease-in-out;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px var(--accent-glow) !important;
+}
+
+.shadow-glow-hover:hover {
+  box-shadow: 0 0 20px var(--accent-glow) !important;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+/* FullCalendar Premium Styling */
+.fc {
+  --fc-border-color: rgba(0, 0, 0, 0.08) !important;
+  --fc-button-bg-color: transparent !important;
+  --fc-button-border-color: rgba(0, 0, 0, 0.08) !important;
+  --fc-button-text-color: var(--text-primary) !important;
+  --fc-button-hover-bg-color: rgba(0, 0, 0, 0.03) !important;
+  --fc-button-hover-border-color: var(--accent-primary) !important;
+  --fc-button-active-bg-color: var(--accent-primary) !important;
+  --fc-button-active-border-color: var(--accent-primary) !important;
+  --fc-event-bg-color: var(--accent-primary) !important;
+  --fc-event-border-color: var(--accent-primary) !important;
+  --fc-today-bg-color: rgba(0, 0, 0, 0.03) !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.dark .fc {
+  --fc-border-color: rgba(255, 255, 255, 0.08) !important;
+  --fc-button-border-color: rgba(255, 255, 255, 0.08) !important;
+  --fc-button-hover-bg-color: rgba(255, 255, 255, 0.05) !important;
+  --fc-today-bg-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: var(--text-secondary) !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 0 !important;
+  text-decoration: none !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 6px !important;
+  text-decoration: none !important;
+}
+
+.fc .fc-daygrid-day {
+  transition: background-color 0.2s ease;
+}
+
+.fc .fc-daygrid-day:hover {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+.dark .fc .fc-daygrid-day:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Exempt FullCalendar buttons from the global dark button style rule */
+.fc button {
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.fc button:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-color: var(--accent-primary) !important;
+  box-shadow: none !important;
+}
+
+.dark .fc button {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .fc button:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+.fc button.fc-button-active {
+  background-color: var(--accent-primary) !important;
+  border-color: var(--accent-primary) !important;
+  color: white !important;
+}
+
+.fc-event {
+  cursor: pointer;
+  border-radius: 6px !important;
+  padding: 2px 4px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.fc-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Event Category Colors overrides for FullCalendar */
+.cat-personal {
+  background-color: #ec4899 !important; /* Rose/Pink */
+  border-color: #ec4899 !important;
+  color: white !important;
+}
+.cat-work {
+  background-color: #3b82f6 !important; /* Blue */
+  border-color: #3b82f6 !important;
+  color: white !important;
+}
+.cat-study {
+  background-color: #8b5cf6 !important; /* Purple */
+  border-color: #8b5cf6 !important;
+  color: white !important;
+}
+.cat-health {
+  background-color: #10b981 !important; /* Emerald */
+  border-color: #10b981 !important;
+  color: white !important;
+}
+.cat-other {
+  background-color: #6b7280 !important; /* Gray */
+  border-color: #6b7280 !important;
+  color: white !important;
+}
+.cat-birthday {
+  background-color: #f59e0b !important; /* Amber */
+  border-color: #f59e0b !important;
+  color: white !important;
+}
+.cat-anniversary {
+  background-color: #f43f5e !important; /* Rose */
+  border-color: #f43f5e !important;
+  color: white !important;
+}
+
+/* Animated Mesh Gradient & Floating Orbs */
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.15);
+  }
+  66% {
+    transform: translate(-30px, 20px) scale(0.9);
+  }
+}
+
+.animate-orb-slow {
+  animation: orb-float 22s infinite ease-in-out;
+}
+
+.animate-orb-reverse {
+  animation: orb-float 28s infinite ease-in-out reverse;
+}
+
+/* Event Photo Thumbnails inside FullCalendar */
+.fc-event-custom-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fc-event-thumbnail {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
