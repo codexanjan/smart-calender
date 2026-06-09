@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, X, Bell, Palette, Settings, Eye, Sun, Moon } from 'lucide-react';
+import { Upload, X, Bell, Palette, Settings, Eye } from 'lucide-react';
 import type { UserPreferences } from '../types';
 import { uploadFile } from '../firebase/db';
 
@@ -25,10 +25,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
   if (!isOpen) return null;
 
-  const handleThemeToggle = () => {
-    const newTheme = preferences.theme === 'light' ? 'dark' : 'light';
-    onUpdatePreferences({ ...preferences, theme: newTheme });
-  };
+
 
   const handleAccentChange = (accent: UserPreferences['accentColor']) => {
     onUpdatePreferences({ ...preferences, accentColor: accent });
@@ -67,6 +64,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
     { name: 'Teal', value: 'teal', colorClass: 'bg-teal-500' },
     { name: 'Violet', value: 'violet', colorClass: 'bg-violet-500' },
     { name: 'Orange', value: 'orange', colorClass: 'bg-orange-500' },
+    { name: 'Fuchsia', value: 'fuchsia', colorClass: 'bg-fuchsia-500' },
+    { name: 'Cyan', value: 'cyan', colorClass: 'bg-cyan-500' },
+    { name: 'Lime', value: 'lime', colorClass: 'bg-lime-500' },
+    { name: 'Crimson', value: 'crimson', colorClass: 'bg-red-600' },
   ];
 
   return (
@@ -99,24 +100,6 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         </div>
 
         <div className="space-y-6 flex-1">
-          {/* Theme Mode Option */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
-              <Sun className="w-3.5 h-3.5" />
-              Interface Theme
-            </h3>
-            <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5">
-              <span className="text-sm font-medium text-slate-200">
-                {preferences.theme === 'light' ? 'Light Mode' : 'Dark Mode'}
-              </span>
-              <button
-                onClick={handleThemeToggle}
-                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-white/10 shadow-sm text-accent cursor-pointer transition-colors"
-              >
-                {preferences.theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-              </button>
-            </div>
-          </div>
 
           {/* Accent Color Palette */}
           <div>

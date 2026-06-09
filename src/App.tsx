@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Settings, LogOut, User, RefreshCw, Sun, Moon } from 'lucide-react';
+import { Calendar, Settings, LogOut, User, RefreshCw } from 'lucide-react';
 import { subscribeToAuth, logout, getEvents, saveEvent, deleteEvent, getTasks, saveTask, deleteTask, getPreferences, savePreferences } from './firebase/db';
 import type { AppUser } from './firebase/db';
 import type { CalendarEvent, Task, UserPreferences } from './types';
@@ -78,19 +78,10 @@ export default function App() {
     loadData();
   }, [user]);
 
-  // 3. Keep HTML document synced with dark/light themes
+  // 3. Force HTML document to remain in dark mode always
   useEffect(() => {
-    if (preferences.theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [preferences.theme]);
-
-  const toggleTheme = () => {
-    const nextTheme = preferences.theme === 'dark' ? 'light' : 'dark';
-    handleUpdatePreferences({ ...preferences, theme: nextTheme });
-  };
+    document.documentElement.classList.add('dark');
+  }, []);
 
   // 4. Start Background Reminder Polling
   useEffect(() => {
@@ -267,9 +258,7 @@ export default function App() {
           style={{
             backdropFilter: `blur(${preferences.bgBlur}px)`,
             WebkitBackdropFilter: `blur(${preferences.bgBlur}px)`,
-            backgroundColor: preferences.theme === 'dark' 
-              ? `rgba(15, 23, 42, ${preferences.bgOpacity / 100})` 
-              : `rgba(248, 250, 252, ${preferences.bgOpacity / 100})`
+            backgroundColor: `rgba(15, 23, 42, ${preferences.bgOpacity / 100})`
           }}
           className="absolute inset-0 -z-10 transition-all duration-300"
         />
@@ -309,13 +298,6 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-1.5">
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-xl transition-all cursor-pointer text-slate-600 dark:text-slate-300"
-              title={preferences.theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            >
-              {preferences.theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
             <button
               onClick={() => setIsSettingsOpen(true)}
               className="p-2.5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-xl transition-all cursor-pointer text-slate-600 dark:text-slate-300"

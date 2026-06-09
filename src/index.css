@@ -77,6 +77,31 @@
   --accent-glow: rgba(249, 115, 22, 0.2);
 }
 
+.theme-fuchsia {
+  --accent-primary: #d946ef;
+  --accent-hover: #c026d3;
+  --accent-glow: rgba(217, 70, 239, 0.2);
+}
+
+.theme-cyan {
+  --accent-primary: #06b6d4;
+  --accent-hover: #0891b2;
+  --accent-glow: rgba(6, 182, 212, 0.2);
+}
+
+.theme-lime {
+  --accent-primary: #84cc16;
+  --accent-hover: #65a30d;
+  --accent-glow: rgba(132, 204, 22, 0.2);
+}
+
+.theme-crimson {
+  --accent-primary: #dc2626;
+  --accent-hover: #b91c1c;
+  --accent-glow: rgba(220, 38, 38, 0.2);
+}
+
+
 /* Dark Mode Overrides */
 .dark {
   --bg-app: #0f172a;

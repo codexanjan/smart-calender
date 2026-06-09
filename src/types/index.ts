@@ -37,7 +37,7 @@ export interface Task {
 
 export interface UserPreferences {
   theme: 'light' | 'dark';
-  accentColor: 'indigo' | 'emerald' | 'rose' | 'amber' | 'sky' | 'teal' | 'violet' | 'orange';
+  accentColor: 'indigo' | 'emerald' | 'rose' | 'amber' | 'sky' | 'teal' | 'violet' | 'orange' | 'fuchsia' | 'cyan' | 'lime' | 'crimson';
   bgPhotoUrl?: string; // Dashboard wallpaper
   bgBlur: number;      // Blur level in px (0 - 40)
   bgOpacity: number;   // Opacity level in % (0 - 100)
